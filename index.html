@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Uber Pay Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#240046,#5a189a,#9d4edd);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:#fff;
+}
+
+/* MAIN CONTAINER */
+.app{
+  width:100%;
+  max-width:1100px;
+  height:90vh;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  display:flex;
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+  overflow:hidden;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:230px;
+  background:rgba(0,0,0,0.25);
+  padding:25px;
+}
+
+.sidebar h2{
+  font-size:22px;
+  margin-bottom:30px;
+}
+
+.menu li{
+  list-style:none;
+  margin-bottom:18px;
+  opacity:.85;
+  cursor:pointer;
+}
+
+.menu li:hover{
+  opacity:1;
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  padding:30px;
+  overflow-y:auto;
+}
+
+/* TOP BAR */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.balance-box{
+  background:rgba(255,255,255,0.15);
+  padding:15px 22px;
+  border-radius:14px;
+}
+
+.actions button{
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+  border:none;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:12px;
+  margin-left:10px;
+  cursor:pointer;
+}
+
+/* DEPOSIT CARD */
+.deposit-card{
+  background:rgba(255,255,255,0.14);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  padding:25px;
+  max-width:520px;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.deposit-card h3{
+  margin-bottom:20px;
+  font-size:20px;
+}
+
+/* FORM */
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  font-size:13px;
+  display:block;
+  margin-bottom:6px;
+  color:#eee;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:12px;
+  background:rgba(255,255,255,0.18);
+  color:#ffffff;
+}
+
+.form-row{
+  display:flex;
+  gap:12px;
+}
+
+.form-group input::placeholder{
+  color:#ddd;
+}
+
+/* FILE INPUT */
+input[type=file]{
+  padding:10px;
+}
+
+/* SUBMIT */
+.submit-btn{
+  width:100%;
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(157,78,221,.7);
+}
+
+.submit-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .app{ flex-direction:column; height:auto; }
+  .sidebar{ width:100%; display:flex; gap:20px; }
+}
+/* SIDEBAR */
+.sidebar{
+  width:230px;
+  background:rgba(0,0,0,0.25);
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+}
+
+.logo{
+  font-size:22px;
+  margin-bottom:30px;
+  color:#fff;
+}
+
+/* MENU */
+.menu{
+  list-style:none;
+}
+
+.menu-btn{
+  margin-bottom:16px;
+  padding:14px 18px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  cursor:pointer;
+  font-weight:500;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  transition:0.3s ease;
+}
+
+/* HOVER 3D EFFECT */
+.menu-btn:hover{
+  transform:translateY(-3px);
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+  box-shadow:0 14px 30px rgba(157,78,221,0.6);
+}
+
+/* ACTIVE BUTTON */
+.menu-btn.active{
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+  box-shadow:0 16px 35px rgba(157,78,221,0.8);
+}
+
+/* PRESS EFFECT */
+.menu-btn:active{
+  transform:translateY(0);
+  box-shadow:0 6px 15px rgba(0,0,0,0.5);
+}
+.actions button{
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+  border:none;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+/* HOVER EFFECT */
+.actions button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 25px rgba(157,78,221,0.7);
+}
+.form-group select{
+  appearance:none;
+  background:rgba(255,255,255,0.18);
+}
+/* Container for the custom select */
+.custom-select {
+  position: relative;
+  width: 250px;
+  font-family: Arial, sans-serif;
+}
+
+/* Selected value */
+.select-selected {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Arrow */
+.select-selected::after {
+  content: "\25BC";
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+/* Dropdown items (hidden by default) */
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 100%;
+  z-index: 99;
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Each option */
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-items div:hover {
+  background-color: #f1f1f1;
+}
+
+/* Flag icon size */
+.flag-icon {
+  width: 20px;
+  height: 15px;
+}
+/* TOP HEADER */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.top-header .left h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.top-header .right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-header .icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.top-header .icon.notification .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+/* BALANCE CARD */
+.balance-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  padding: 15px 22px;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.balance-card .balance-box {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.balance-card .actions button {
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.balance-card .actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(157,78,221,0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width:900px){
+  .top-header, .balance-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .balance-card .actions {
+    display: flex;
+    gap: 10px;
+  }
+}
+.balance-card-trendy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #9d4edd, #c77dff);
+  box-shadow: 0 15px 40px rgba(157, 78, 221, 0.5);
+  color: #fff;
+  flex-wrap: wrap;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.balance-card-trendy:hover {
+  transform: translateY(-4px);
+}
+
+.balance-left .balance-title {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.balance-left .balance-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.balance-right {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn.withdraw {
+  background: #fff;
+  color: #9d4edd;
+}
+
+.action-btn.withdraw:hover {
+  background: rgba(255,255,255,0.85);
+}
+
+.action-btn.support {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.action-btn.support:hover {
+  background: rgba(255,255,255,0.35);
+}
+.deposit-card-trendy {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 25px 30px;
+  max-width: 520px;    /* slightly wider than before */
+  margin: 0 auto 25px; /* centers horizontally and gives bottom spacing */
+  box-shadow: 0 15px 40px rgba(157,78,221,0.5);
+  transition: transform 0.3s ease;
+}
+
+.deposit-card-trendy:hover {
+  transform: translateY(-3px);
+}
+
+.deposit-card-trendy h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.deposit-card-trendy .form-group label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: block;
+  color: #eee;
+}
+
+.deposit-card-trendy .form-group input,
+.deposit-card-trendy .form-group select {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.deposit-card-trendy .form-group select {
+  appearance: none;
+}
+
+.deposit-card-trendy .submit-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(157,78,221,0.6);
+  transition: transform 0.3s ease;
+}
+
+.deposit-card-trendy .submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media(max-width:900px){
+  .deposit-card-trendy {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2 class="logo">Uber Pay</h2>
+
+  <ul class="menu">
+    <li class="menu-btn active">Dashboard</li>
+    <li class="menu-btn">Deposit</li>
+    <li class="menu-btn">Withdraw</li>
+    <li class="menu-btn">Transactions</li>
+    <li class="menu-btn">Support</li>
+  </ul>
+</div>
+
+
+  <!-- CONTENT -->
+  <div class="content">
+
+   <!-- TOP HEADER -->
+<div class="top-header">
+  <div class="left">
+    <h2>Dashboard</h2>
+  </div>
+  <div class="right">
+    <!-- Notification -->
+    <div class="icon notification">
+      <i class="fa-solid fa-bell"></i>
+      <span class="badge">3</span>
+    </div>
+    <!-- Theme Toggle -->
+    <div class="icon theme-toggle">
+      <i class="fa-solid fa-moon"></i>
+    </div>
+    <!-- Profile -->
+    <div class="profile">
+      <i class="fa-solid fa-user"></i>
+      <span>Fiza</span>
+      <i class="fa-solid fa-caret-down"></i>
+    </div>
+  </div>
+</div>
+
+<!-- TRENDY BALANCE CARD -->
+<div class="balance-card-trendy">
+  <div class="balance-left">
+    <div class="balance-title">Available Balance</div>
+    <div class="balance-amount">PKR <strong>12,450</strong></div>
+  </div>
+  <div class="balance-right">
+    <button class="action-btn withdraw">
+      <i class="fa-solid fa-wallet"></i>
+      Withdraw
+    </button>
+    <button class="action-btn support">
+      <i class="fa-solid fa-headset"></i>
+      Support
+    </button>
+  </div>
+</div>
+
+<br>
+<br>
+
+    <!-- TRENDY DEPOSIT CARD -->
+<div class="deposit-card-trendy">
+  <h3>Deposit Money</h3>
+
+  <div class="form-group">
+    <label>Amount</label>
+    <input type="number" placeholder="Enter amount">
+  </div>
+
+  <div class="form-group">
+    <label>Payment Method</label>
+    <select>
+      <option disabled selected>Select Method</option>
+      <option>JazzCash</option>
+      <option>Easypaisa</option>
+      <option>Bank Transfer</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Send To Country</label>
+    <select>
+      <option disabled selected>Select Country</option>
+      <option value="PK" class="fi fi-pk">Pakistan</option>
+      <option value="AE" class="fi fi-ae">United Arab Emirates</option>
+      <option value="SA" class="fi fi-sa">Saudi Arabia</option>
+      <option value="GB" class="fi fi-gb">United Kingdom</option>
+      <option value="US" class="fi fi-us">United States</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Payment ID / Transaction ID</label>
+    <input type="text" placeholder="Enter transaction ID">
+  </div>
+
+  <div class="form-group">
+    <label>Payment Screenshot</label>
+    <input type="file">
+  </div>
+
+  <button class="submit-btn">Submit</button>
+</div>
+
+
+</body>
+</html>
