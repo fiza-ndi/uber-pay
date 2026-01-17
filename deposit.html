@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Uber Pay – Deposit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+  min-height:100vh;
+  background: radial-gradient(circle at top left, #9b5cff, #3a0ca3, #12002f);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+/* ===== LANDSCAPE CARD ===== */
+.wallet-card{
+  width:100%;
+  max-width:900px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  padding:35px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== HEADER ===== */
+.wallet-header{
+  margin-bottom:25px;
+}
+
+.wallet-header h1{
+  color:#fff;
+  font-size:26px;
+  font-weight:600;
+}
+
+.wallet-header p{
+  color:#ddd;
+  font-size:14px;
+}
+
+/* ===== FORM GRID ===== */
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-group label{
+  color:#eee;
+  font-size:13px;
+  display:block;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+  font-size:14px;
+}
+
+.form-group input::placeholder{
+  color:#ccc;
+}
+
+.form-group select option{
+  color:#000;
+}
+
+/* ===== FULL WIDTH ===== */
+.full{
+  grid-column:1 / -1;
+}
+
+/* ===== BUTTON ===== */
+.deposit-btn{
+  margin-top:10px;
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(157,78,221,0.6);
+  transition:.3s ease;
+}
+
+.deposit-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* ===== NOTE ===== */
+.note{
+  margin-top:15px;
+  font-size:12px;
+  color:#ddd;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wallet-card">
+
+  <div class="wallet-header">
+    <h1>Uber Pay</h1>
+    <p>Bank Deposit</p>
+  </div>
+
+  <form>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Account Name</label>
+        <input type="text" placeholder="Enter account holder name">
+      </div>
+
+      <div class="form-group">
+        <label>Account Number</label>
+        <input type="text" placeholder="Enter account number">
+      </div>
+
+      <div class="form-group">
+        <label>Bank Name</label>
+        <select>
+          <option>Select Bank</option>
+          <option>HBL</option>
+          <option>UBL</option>
+          <option>MCB</option>
+          <option>Allied Bank</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Amount</label>
+        <input type="number" placeholder="Enter amount">
+      </div>
+
+      <div class="form-group full">
+        <label>Transaction ID</label>
+        <input type="text" placeholder="Enter transaction ID">
+      </div>
+
+      <div class="form-group full">
+        <button class="deposit-btn">Submit Deposit</button>
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class="note">
+    Your deposit will be reviewed & approved shortly
+  </div>
+
+</div>
+
+</body>
+</html>
