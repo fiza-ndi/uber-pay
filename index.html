@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -268,3 +269,275 @@ nextBtn.addEventListener('click', () => {
 
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Easy Finora</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#240046,#5a189a,#9d4edd);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:#fff;
+}
+
+/* MAIN APP */
+.app{
+  width:100%;
+  max-width:1100px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  display:flex;
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+  overflow:hidden;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:230px;
+  background:rgba(0,0,0,0.25);
+  padding:25px;
+}
+
+.logo{
+  font-size:22px;
+  margin-bottom:30px;
+}
+
+.menu{
+  list-style:none;
+}
+
+.menu-btn{
+  margin-bottom:16px;
+  padding:14px 18px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.12);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.menu-btn:hover,
+.menu-btn.active{
+  background:linear-gradient(135deg,#c77dff,#9d4edd);
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  padding:30px;
+  overflow-y:auto;
+}
+
+/* TOP HEADER */
+.top-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.12);
+  padding:15px 25px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+
+.right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.profile{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* BALANCE CARD */
+.balance-card-trendy{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#9d4edd,#c77dff);
+  margin-bottom:30px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">Easy Finora</div>
+  <ul class="menu">
+    <li class="menu-btn active">Dashboard</li>
+    <li class="menu-btn">Deposit</li>
+    <li class="menu-btn">Withdraw</li>
+    <li class="menu-btn">Transactions</li>
+    <li class="menu-btn">Support</li>
+  </ul>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<div class="top-header">
+  <h2>Dashboard</h2>
+  <div class="right">
+    <i class="fa-solid fa-bell"></i>
+    <div class="profile">
+      <i class="fa-solid fa-user"></i>
+      <span>Fiza</span>
+    </div>
+  </div>
+</div>
+
+<div class="balance-card-trendy">
+  <div>Available Balance<br><strong>PKR 12,450</strong></div>
+  <div>
+    <button class="withdraw-btn">Withdraw</button>
+
+  </div>
+</div>
+
+<div class="deposit-section">
+
+  <!-- STEP 1: DEPOSIT DETAILS -->
+  <div class="deposit-card-trendy step" id="step1">
+    <h3>Deposit Details</h3>
+
+    <!-- Amount -->
+    <div class="form-group">
+      <label>Amount</label>
+      <input type="number" placeholder="Enter amount">
+    </div>
+
+    <!-- Payment Method -->
+    <div class="form-group">
+      <label>Payment Method</label>
+      <select>
+        <option style="color: #000;">JazzCash</option>
+        <option style="color: #000;">Easypaisa</option>
+        <option style="color: #000;">Bank Transfer</option>
+      </select>
+    </div>
+
+    <!-- Sender Name -->
+    <div class="form-group">
+      <label>Sender Name</label>
+      <input type="text" placeholder="Enter sender name">
+    </div>
+
+    <!-- Country Selector -->
+<div class="form-group">
+  <label>Country</label>
+  <div class="custom-select">
+    <div class="selected">Select Country</div>
+    <div class="options">
+      <div class="option" data-value="pk"><img src="img/pakistan.jfif" alt="Pakistan"> Pakistan</div>
+      <div class="option" data-value="us"><img src="img/USA.jpg" alt="USA"> USA</div>
+      <div class="option" data-value="gb"><img src="img/UK.jfif" alt="UK"> UK</div>
+      <div class="option" data-value="ae"><img src="img/UAE.jfif" alt="UAE"> UAE</div>
+      <div class="option" data-value="ca"><img src="img/Canada.jfif" alt="Canada"> Canada</div>
+      <!-- Add more countries like this -->
+    </div>
+  </div>
+</div>
+
+
+    <!-- Receiver -->
+    <div class="form-group">
+      <label>Send To</label>
+      <input type="text" placeholder="Receiver Name or Account">
+    </div>
+
+    <button class="submit-btn" id="nextBtn">Next</button>
+  </div>
+
+</div>
+
+  <!-- STEP 2: PAYMENT PROOF -->
+  <div class="deposit-card-trendy step" id="step2" style="display:none;">
+    <h3>Payment Proof</h3>
+
+    <div class="form-group">
+      <label>Transaction ID</label>
+      <input type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Screenshot</label>
+      <input type="file">
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <button class="submit-btn" id="backBtn" style="flex:1; background:linear-gradient(135deg,#9d4edd,#c77dff);">Back</button>
+      <button class="submit-btn" style="flex:1;">Submit Deposit</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+<script>
+const customSelect = document.querySelector('.custom-select');
+const selected = customSelect.querySelector('.selected');
+const optionsContainer = customSelect.querySelector('.options');
+const optionsList = customSelect.querySelectorAll('.option');
+
+// Toggle dropdown
+selected.addEventListener('click', () => {
+  optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block';
+});
+
+// Option click
+optionsList.forEach(option => {
+  option.addEventListener('click', () => {
+    selected.innerHTML = option.innerHTML; // show selected flag + country
+    optionsContainer.style.display = 'none';
+  });
+});
+
+// Close when clicking outside
+document.addEventListener('click', function(e) {
+  if (!customSelect.contains(e.target)) {
+    optionsContainer.style.display = 'none';
+  }
+});
+const nextBtn = document.getElementById('nextBtn');
+const step1 = document.getElementById('step1');
+const step2 = document.getElementById('step2');
+
+nextBtn.addEventListener('click', () => {
+  step1.style.display = 'none';
+  step2.style.display = 'block';
+});
+
+</script>
+
+
+</html>
+>>>>>>> b8507ca (Updated index.html, style.css and added country images)
