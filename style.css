@@ -1,0 +1,188 @@
+/* Deposit Card - Step 1 */
+.deposit-card-trendy.step {
+  background: rgba(255,255,255,0.15);  /* Transparent card */
+  backdrop-filter: blur(16px);          /* Blur effect */
+  border-radius: 18px;
+  padding: 25px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Card Heading */
+.deposit-card-trendy.step h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Form Groups */
+.deposit-card-trendy.step .form-group {
+  margin-bottom: 15px;
+}
+
+.deposit-card-trendy.step .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.deposit-card-trendy.step .form-group input,
+.deposit-card-trendy.step .form-group select {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+/* Next Button */
+.deposit-card-trendy.step .submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#c77dff,#9d4edd);
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.deposit-card-trendy.step .submit-btn:hover {
+  background-color: #a86dd8; /* Slightly darker/lighter effect */
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Custom Select for Country */
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Selected box */
+.custom-select .selected {
+  padding: 13px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+/* Options dropdown */
+.custom-select .options {
+  display: none; /* Hidden by default */
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+/* Each option */
+.custom-select .option {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  font-size: 14px;
+}
+
+.custom-select .option img {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.custom-select .option:hover {
+  background: rgba(155,77,221,0.2); /* hover highlight */
+}
+/* Custom Select Container */
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Selected box */
+.custom-select .selected {
+  padding: 13px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.18);
+  color: #646363;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  transition: all 0.3s ease;
+}
+
+/* Options dropdown */
+.custom-select .options {
+  display: none; /* hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+/* Each option */
+.custom-select .option {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  font-size: 14px;
+}
+
+.custom-select .option img {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* Option hover effect */
+.custom-select .option:hover {
+  background: rgba(155,77,221,0.2);
+}
+/* Withdraw Button Styling */
+.withdraw-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #c77dff, #9d4edd); /* Same as submit button */
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.withdraw-btn:hover {
+  background-color: #a86dd8;           /* Slightly lighter gradient color */
+  transform: scale(1.05);              /* Slight zoom effect */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Soft shadow */
+}
